@@ -4,6 +4,9 @@ dependencies:
   babylonjs:
     specifier: ^6.40.0
     version: 6.40.0
+  babylonjs-materials:
+    specifier: ^6.40.0
+    version: 6.40.0
   next:
     specifier: 14.1.0
     version: 14.1.0(react-dom@18.0.0)(react@18.0.0)
@@ -279,6 +282,12 @@ packages:
       postcss: 8.0.0
       postcss-value-parser: 4.2.0
     dev: true
+
+  /babylonjs-materials@6.40.0:
+    resolution: {integrity: sha512-jIgBDKpffukGDhLpqR4NNxfPpZbvCkB/SlkXSRNuZDg9B0poz1kNAuN+DzN6fCtSHeXI7TtrrvzvMKKPRmByEw==}
+    dependencies:
+      babylonjs: 6.40.0
+    dev: false
 
   /babylonjs@6.40.0:
     resolution: {integrity: sha512-sKgiWmf/qtHAtLiww88FaTLD41NodB3ZJhujgf9k7AclW2h6xMMpb0HUYbK+eigJgBTTJYECEJzxAfbIZzTmvQ==}

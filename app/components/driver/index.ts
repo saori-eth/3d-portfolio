@@ -1,4 +1,5 @@
-import { Engine, Scene, MeshBuilder, Vector3, HemisphericLight, ArcRotateCamera } from 'babylonjs';
+import { Engine, Scene, MeshBuilder, Vector3, HemisphericLight, FreeCamera, StandardMaterial, CubeTexture, Texture, Color3, PBRMaterial } from 'babylonjs';
+import { SkyMaterial } from 'babylonjs-materials';
 
 interface DriverProps {
   canvas: HTMLCanvasElement;
@@ -23,13 +24,23 @@ export class Driver {
   }
 
   testScene() {
-    const camera = new ArcRotateCamera('camera', 0, 0, 0, new Vector3(0, 0, 0), this.scene);
-    camera.setPosition(new Vector3(0, 0, -10));
-    camera.attachControl(this.canvas, true);
+    const camera = new FreeCamera('camera', new Vector3(0, 0, -10), this.scene);
+    camera.setTarget(Vector3.Zero());
 
     const light = new HemisphericLight('light', new Vector3(0, 1, 0), this.scene);
+    light.intensity = 0.7;
 
     const box = MeshBuilder.CreateBox('box', { size: 2 }, this.scene);
+
+    // create skybox
+    const skybox = MeshBuilder.CreateBox('skybox', {size: 1000}, this.scene);
+    const skyMaterial = new SkyMaterial("skyMaterial", this.scene);
+    skyMaterial.backFaceCulling = false;
+    // Adjust these parameters for a night time or outer space look
+    skyMaterial.luminance = 1;  // Lower luminance for a darker sky
+    skyMaterial.turbidity = 2;    // Lower turbidity for less haze
+    skyMaterial.inclination = 0;  // Adjust the inclination for the position of the stars/moon
+    skybox.material = skyMaterial;
 
     this.engine.runRenderLoop(() => {
       this.scene.render();
