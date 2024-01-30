@@ -1,7 +1,20 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
+  '@babylonjs/core':
+    specifier: ^6.40.0
+    version: 6.40.0
+  babylon-vrm-loader:
+    specifier: ^2.0.0
+    version: 2.0.0(@babylonjs/core@6.40.0)(@babylonjs/loaders@5.57.1)
   babylonjs:
+    specifier: ^6.40.0
+    version: 6.40.0
+  babylonjs-loaders:
     specifier: ^6.40.0
     version: 6.40.0
   babylonjs-materials:
@@ -41,6 +54,20 @@ devDependencies:
     version: 5.0.2
 
 packages:
+
+  /@babylonjs/core@6.40.0:
+    resolution: {integrity: sha512-WyMDi0xmc3JsSNTJhm0VXnBMtQSzqRq4dZwoQ918lKufvwKy0/FTzv+Y7h6sWeBsijG1q74p85U8dVAG0jiIIg==}
+    dev: false
+
+  /@babylonjs/loaders@5.57.1(@babylonjs/core@6.40.0)(babylonjs-gltf2interface@5.57.1):
+    resolution: {integrity: sha512-DHk0iOwJgnTcj8vI+cQVzpiUvWGJvYqWyZxsf7nzhbeND+ZwNWSG0AelaGbGHpWTaDSd/DjUcoWVZuT4Cg6/Xg==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+      babylonjs-gltf2interface: ^5.22.0
+    dependencies:
+      '@babylonjs/core': 6.40.0
+      babylonjs-gltf2interface: 5.57.1
+    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -282,6 +309,40 @@ packages:
       postcss: 8.0.0
       postcss-value-parser: 4.2.0
     dev: true
+
+  /babylon-mtoon-material@5.1.1(@babylonjs/core@6.40.0):
+    resolution: {integrity: sha512-u6R3nKkeXTP9S4TP6ntbVAMxAEZ8S89jiOSj39iW5WMaXOEUcGEbEAUa6crhR4621sDxt5keHje33BNFb6K1ew==}
+    peerDependencies:
+      '@babylonjs/core': ^5.19.0
+    dependencies:
+      '@babylonjs/core': 6.40.0
+    dev: false
+
+  /babylon-vrm-loader@2.0.0(@babylonjs/core@6.40.0)(@babylonjs/loaders@5.57.1):
+    resolution: {integrity: sha512-uxGHQuSK8iBWrMjjbWfdapXb5wo/WHOey9dgeWIgv1YJ7IenM0fVs47RH4deGkU/yPANHFt/cFpyh9u7+TfaHA==}
+    peerDependencies:
+      '@babylonjs/core': ^5.19.0
+      '@babylonjs/loaders': ^5.19.0
+    dependencies:
+      '@babylonjs/core': 6.40.0
+      '@babylonjs/loaders': 5.57.1(@babylonjs/core@6.40.0)(babylonjs-gltf2interface@5.57.1)
+      babylon-mtoon-material: 5.1.1(@babylonjs/core@6.40.0)
+    dev: false
+
+  /babylonjs-gltf2interface@5.57.1:
+    resolution: {integrity: sha512-RZnaKfJ6Q/AYLdIjBYMRxCW/HPEC8jabAL1U8wJ0KVziw6NSbSV6S80S22fUCPTyaZ7nCekn1TYg1IPmJ/eA6w==}
+    dev: false
+
+  /babylonjs-gltf2interface@6.40.0:
+    resolution: {integrity: sha512-Ch0J14yP00bxaKTMtjm8veKUGGcrngjAWdgbWeoH5aj9yRFhPkMhLgSrx+7451grdAH7qWqGvAHqAiXn/qRhzA==}
+    dev: false
+
+  /babylonjs-loaders@6.40.0:
+    resolution: {integrity: sha512-Fxc6mpf2ZgjBy5Et17hz9ILdE4ZS7CHESQQFId1lEQLxbEjLswwvXFUFQgiEkD64bZ+lnyxxQ6FwvapLP1kXjw==}
+    dependencies:
+      babylonjs: 6.40.0
+      babylonjs-gltf2interface: 6.40.0
+    dev: false
 
   /babylonjs-materials@6.40.0:
     resolution: {integrity: sha512-jIgBDKpffukGDhLpqR4NNxfPpZbvCkB/SlkXSRNuZDg9B0poz1kNAuN+DzN6fCtSHeXI7TtrrvzvMKKPRmByEw==}
