@@ -6,9 +6,10 @@ import {
   HemisphericLight,
   FreeCamera,
   SceneLoader,
-} from "babylonjs";
-import { SkyMaterial } from "babylonjs-materials";
-import "babylonjs-loaders";
+} from "@babylonjs/core";
+import { SkyMaterial } from "@babylonjs/materials";
+import "@babylonjs/loaders/glTF";
+import "babylon-vrm-loader";
 
 const BASE_URL = "https://saori-content.s3.amazonaws.com/";
 
@@ -30,16 +31,11 @@ export class Driver {
     };
     this.listeners();
     this.testScene();
-    this.loadGlb();
+    this.loadVrm();
   }
 
-  async loadGlb() {
-    SceneLoader.ImportMesh("", BASE_URL, "noun3d.glb", this.scene, (meshes) => {
-      meshes.forEach((mesh) => {
-        mesh.rotation = new Vector3(0, Math.PI, 0);
-        mesh.position.z = -7.5;
-        mesh.position.y = -0.25;
-      });
+  async loadVrm() {
+    SceneLoader.ImportMesh("", BASE_URL, "803.vrm", this.scene, (meshes) => {
       this.mesh.avatar = meshes;
     });
   }
@@ -51,8 +47,12 @@ export class Driver {
   }
 
   testScene() {
-    const camera = new FreeCamera("camera", new Vector3(0, 0, -10), this.scene);
-    camera.setTarget(Vector3.Zero());
+    const camera = new FreeCamera(
+      "camera",
+      new Vector3(0, 1.5, -2.5),
+      this.scene
+    );
+    // camera.setTarget(Vector3.Zero());
 
     const light = new HemisphericLight(
       "light",
