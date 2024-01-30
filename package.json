@@ -9,10 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@babylonjs/core": "^6.40.0",
-    "babylon-vrm-loader": "^2.0.0",
-    "@babylonjs/loaders": "^6.40.0",
-    "@babylonjs/materials": "^6.40.0",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18"
