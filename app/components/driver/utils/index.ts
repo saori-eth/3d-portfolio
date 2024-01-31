@@ -1,1 +1,0 @@
-export { loadVRM } from "./loaders";

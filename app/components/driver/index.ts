@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { loadVRM } from "./utils";
+import { VRMSystem } from "./systems";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 
 const BASE_URL = "https://saori-content.s3.amazonaws.com/";
@@ -13,10 +13,11 @@ export class Driver {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
-  models: THREE.Object3D[] = [];
+  vrmSystem: VRMSystem;
 
   constructor(props: DriverProps) {
     this.canvas = props.canvas;
+    this.vrmSystem = new VRMSystem(this);
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       75,
@@ -28,7 +29,7 @@ export class Driver {
 
     this.setupScene();
     this.listeners();
-    loadVRM(this.scene, `${BASE_URL}803.vrm`);
+    this.vrmSystem.load(`${BASE_URL}803.vrm`);
     this.startRendering();
   }
 
