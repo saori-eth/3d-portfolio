@@ -1,6 +1,5 @@
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/Addons.js";
-import { VRMLoaderPlugin } from "@pixiv/three-vrm";
+import { loadVRM } from "./utils";
 
 const BASE_URL = "https://saori-content.s3.amazonaws.com/";
 
@@ -25,10 +24,10 @@ export class Driver {
     );
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
 
-    this.setupScene(); // Setup the scene without starting the render loop
+    this.setupScene();
     this.listeners();
-    this.loadVRM(`${BASE_URL}803.vrm`);
-    this.startRendering(); // Start the render loop
+    loadVRM(this.scene, `${BASE_URL}803.vrm`);
+    this.startRendering();
   }
 
   setupScene(): void {
@@ -46,7 +45,6 @@ export class Driver {
     this.camera.position.y = 1.75;
   }
 
-  // This method can be called externally to start the rendering
   startRendering(): void {
     const animate = (): void => {
       requestAnimationFrame(animate);
@@ -61,27 +59,5 @@ export class Driver {
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     });
-  }
-
-  private loadVRM(url: string): void {
-    const loader = new GLTFLoader();
-    loader.register((parser) => new VRMLoaderPlugin(parser));
-
-    loader.load(
-      url,
-      (gltf) => {
-        const vrm = gltf.userData.vrm;
-        this.scene.add(vrm.scene);
-        vrm.scene.rotation.y = Math.PI;
-        console.log("VRM loaded", vrm);
-      },
-      (progress) =>
-        console.log(
-          "Loading VRM...",
-          100.0 * (progress.loaded / progress.total),
-          "%"
-        ),
-      (error) => console.error("Failed to load VRM:", error)
-    );
   }
 }
