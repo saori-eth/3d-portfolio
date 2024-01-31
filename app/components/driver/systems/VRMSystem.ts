@@ -18,6 +18,7 @@ export class VRMSystem {
         VRMUtils.removeUnnecessaryJoints(gltf.scene);
         VRMUtils.removeUnnecessaryVertices(gltf.scene);
         const vrm = gltf.userData.vrm;
+        vrm.lookAt.target = this.driver.lookAtTarget;
         vrm.scene.traverse((obj: any) => {
           obj.frustumCulled = false;
         });

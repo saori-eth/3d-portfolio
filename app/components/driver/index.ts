@@ -14,6 +14,8 @@ export class Driver {
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
   vrmSystem: VRMSystem;
+  lookAtTarget: THREE.Object3D;
+  clock: THREE.Clock;
 
   constructor(props: DriverProps) {
     this.canvas = props.canvas;
@@ -25,11 +27,14 @@ export class Driver {
       0.1,
       1000
     );
+    this.lookAtTarget = new THREE.Object3D();
+    this.camera.add(this.lookAtTarget);
+    this.clock = new THREE.Clock();
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
 
     this.setupScene();
     this.listeners();
-    this.vrmSystem.load(`${BASE_URL}803.vrm`);
+    this.vrmSystem.load(`${BASE_URL}test.vrm`);
     this.startRendering();
   }
 
@@ -62,16 +67,32 @@ export class Driver {
   startRendering(): void {
     const animate = (): void => {
       requestAnimationFrame(animate);
+      const delta = this.clock.getDelta();
+      this.vrmSystem.avatars.forEach((vrm) => {
+        if (vrm) {
+          vrm.update(delta);
+        }
+      });
       this.renderer.render(this.scene, this.camera);
     };
     animate();
   }
 
-  private listeners(): void {
-    window.addEventListener("resize", () => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+  listeners(): void {
+    window.addEventListener("resize", this.onWindowResize.bind(this));
+    window.addEventListener("mousemove", this.onMouseMove.bind(this));
+  }
+
+  onWindowResize(): void {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    this.lookAtTarget.position.x =
+      10.0 * ((event.clientX - 0.5 * window.innerWidth) / window.innerHeight);
+    this.lookAtTarget.position.y =
+      -10.0 * ((event.clientY - 0.5 * window.innerHeight) / window.innerHeight);
   }
 }
