@@ -1,4 +1,4 @@
-import { VRMLoaderPlugin } from "@pixiv/three-vrm";
+import { VRMLoaderPlugin, VRMUtils } from "@pixiv/three-vrm";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 export const loadVRM = (scene: any, url: string) => {
@@ -8,7 +8,12 @@ export const loadVRM = (scene: any, url: string) => {
   loader.load(
     url,
     (gltf) => {
+      VRMUtils.removeUnnecessaryJoints(gltf.scene);
+      VRMUtils.removeUnnecessaryVertices(gltf.scene);
       const vrm = gltf.userData.vrm;
+      vrm.scene.traverse((obj: any) => {
+        obj.frustumCulled = false;
+      });
       scene.add(vrm.scene);
       vrm.scene.rotation.y = Math.PI;
       console.log("VRM loaded", vrm);
