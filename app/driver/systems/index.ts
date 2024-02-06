@@ -1,0 +1,1 @@
+export { VRMSystem } from "./VRMSystem";
