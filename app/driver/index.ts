@@ -10,6 +10,8 @@ interface DriverProps {
 export class Driver {
   canvas: HTMLCanvasElement;
   scene: THREE.Scene;
+  loadingManager: THREE.LoadingManager;
+  progressCallback?: (progress: number) => void;
   camera: THREE.PerspectiveCamera;
   renderer: THREE.WebGLRenderer;
   vrmSystem: VRMSystem;
@@ -20,6 +22,7 @@ export class Driver {
     this.canvas = props.canvas;
     this.vrmSystem = new VRMSystem(this);
     this.scene = new THREE.Scene();
+    this.loadingManager = new THREE.LoadingManager();
     this.camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -40,6 +43,15 @@ export class Driver {
 
   test(): void {
     console.log("test");
+  }
+
+  public onProgress(callback: (progress: number) => void): void {
+    this.progressCallback = callback;
+    this.loadingManager.onProgress = (url, itemsLoaded, itemsTotal) => {
+      const progress = itemsLoaded / itemsTotal;
+      if (this.progressCallback) this.progressCallback(progress);
+      console.log(`Loading file: ${url} (${itemsLoaded}/${itemsTotal})`);
+    };
   }
 
   setupScene(): void {
@@ -64,7 +76,7 @@ export class Driver {
     // controls.update();
 
     // skysphere
-    const loader = new THREE.TextureLoader();
+    const loader = new THREE.TextureLoader(this.loadingManager);
     const texture = loader.load("/skybox/mtn.png");
     const geometry = new THREE.SphereGeometry(1000, 60, 40);
     const material = new THREE.MeshPhongMaterial({

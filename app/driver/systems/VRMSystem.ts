@@ -13,7 +13,7 @@ export class VRMSystem {
   }
 
   load(url: string, animationUrl?: string) {
-    const loader = new GLTFLoader();
+    const loader = new GLTFLoader(this.driver.loadingManager);
     loader.register((parser) => new VRMLoaderPlugin(parser));
 
     loader.load(
