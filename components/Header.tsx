@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { TwitterLogo, GithubLogo } from "../app/assets/icons";
+import Image from 'next/image'
+import { TwitterLogo, GithubLogo } from '../app/assets/icons'
 
 export const Header = () => {
   return (
@@ -29,5 +29,5 @@ export const Header = () => {
         <GithubLogo color="white" size="24" />
       </a>
     </div>
-  );
-};
+  )
+}

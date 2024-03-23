@@ -1,5 +1,5 @@
-import { Environment, Grid, OrbitControls } from "@react-three/drei";
-import { Avatar } from "./Avatar";
+import { Environment, Grid, OrbitControls } from '@react-three/drei'
+import { Avatar } from './Avatar'
 
 export const World = () => {
   return (
@@ -7,5 +7,5 @@ export const World = () => {
       <Environment files="skybox/night_sky.hdr" background={true} />;
       <Avatar />
     </>
-  );
-};
+  )
+}

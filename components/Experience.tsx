@@ -1,9 +1,9 @@
-"use client";
-import { Canvas } from "@react-three/fiber";
-import { Loader, PerspectiveCamera } from "@react-three/drei";
-import { Suspense } from "react";
-import { World } from "./World";
-import { GUI } from "./GUI";
+'use client'
+import { Canvas } from '@react-three/fiber'
+import { Loader, PerspectiveCamera } from '@react-three/drei'
+import { Suspense } from 'react'
+import { World } from './World'
+import { GUI } from './GUI'
 
 const Experience = () => {
   return (
@@ -17,7 +17,7 @@ const Experience = () => {
         </Suspense>
       </Canvas>
     </>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

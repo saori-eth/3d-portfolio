@@ -1,4 +1,4 @@
-import { Root, Text } from "@react-three/uikit";
+import { Root, Text } from '@react-three/uikit'
 
 export const GUI = () => {
   return (
@@ -22,5 +22,5 @@ export const GUI = () => {
         </Text>
       </Root>
     </group>
-  );
-};
+  )
+}

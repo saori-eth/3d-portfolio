@@ -1,1 +1,1 @@
-export { loadAnim } from "./vrm";
+export { loadAnim } from './vrm'

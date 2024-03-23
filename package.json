@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier-format": "prettier --write .",
+    "prettier-check": "prettier --check ."
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.15",
