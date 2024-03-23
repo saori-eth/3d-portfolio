@@ -1,6 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { Loader, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Loader, PerspectiveCamera } from "@react-three/drei";
 import { Suspense } from "react";
 import { World } from "./World";
 import { GUI } from "./GUI";
@@ -10,9 +10,9 @@ const Experience = () => {
     <>
       <Loader />
       <Canvas>
-        <GUI />
-        <PerspectiveCamera makeDefault position={[0.5, 1.25, 2]} />
         <Suspense fallback={null}>
+          <GUI />
+          <PerspectiveCamera makeDefault position={[0.5, 1.25, 2]} />
           <World />
         </Suspense>
       </Canvas>
