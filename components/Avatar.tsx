@@ -3,6 +3,8 @@ import { useVRMloader } from "@/hooks/useVRMLoader";
 import { useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect } from "react";
+import { degToRad } from "three/src/math/MathUtils.js";
+
 export const Avatar = () => {
   const vrm = useVRMloader("/avatar/avatar.vrm");
   const clips = useClips(vrm);
@@ -19,7 +21,7 @@ export const Avatar = () => {
   });
 
   return (
-    <group rotation={[0, 45, 0]}>
+    <group rotation={[0, degToRad(45), 0]}>
       <primitive object={vrm.scene} />
     </group>
   );

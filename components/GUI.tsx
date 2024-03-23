@@ -1,32 +1,25 @@
-import { Root, Container, Text } from "@react-three/uikit";
-import { FancyMaterial } from "../utils";
-
-const bullets = [
-  "I'm a typescript & Solidity dev",
-  "I've been a full time crypto trading neet since 2021",
-  "Contributed to projects in about every crypto niche",
-];
+import { Root, Text } from "@react-three/uikit";
 
 export const GUI = () => {
   return (
-    <group position={[0.775, 1.25, 0]}>
+    <group position={[0.75, 1.25, -0.25]} rotation={[0, -0.25, 0]}>
       <Root
         backgroundColor="black"
         padding={24}
         borderRadius={12}
-        borderColor="white"
-        border={8}
-        panelMaterialClass={FancyMaterial}
-        maxWidth={400}
+        maxWidth={375}
       >
         <Text color="white" fontSize={32}>
-          Hi there!
+          Hi!
         </Text>
-        {bullets.map((bullet, index) => (
-          <Text key={index} color="white" fontSize={22}>
-            - {bullet}
-          </Text>
-        ))}
+        <Text color="white" fontSize={22} marginY={12}>
+          I'm a crypto trader and programmer who builds startups in my free
+          time.
+        </Text>
+        <Text color="white" fontSize={22} marginY={12}>
+          I used to be a content writer. Suppose I'm a bit of a generalist,
+          interested in whatever gets the people going.
+        </Text>
       </Root>
     </group>
   );

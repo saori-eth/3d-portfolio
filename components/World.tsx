@@ -6,9 +6,6 @@ export const World = () => {
     <>
       <Environment files="skybox/night_sky.hdr" background={true} />;
       <Avatar />
-      <group position={[0, 0, 0]}>
-        <Grid args={[10, 10]} />
-      </group>
     </>
   );
 };
