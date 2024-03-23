@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { Canvas } from "./components/Canvas";
-import { Header } from "./components/Header";
+import dynamic from "next/dynamic";
+import { Header } from "../components/Header";
+const Experience = dynamic(() => import("../components/Experience"), {
+  ssr: false,
+});
 
 const font = Poppins({
   weight: "400",
@@ -25,13 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className}`}>
-        <Canvas>
-          <div className="relative z-10 select-none">
-            <Header />
-            {children}
-          </div>
-        </Canvas>
+      <body className={`${font.className} w-screen h-screen overflow-hidden`}>
+        <Header />
+        <Experience />
+        {children}
       </body>
     </html>
   );
