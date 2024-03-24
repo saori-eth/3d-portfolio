@@ -37,9 +37,12 @@ export const Avatar = () => {
   })
 
   return (
-    <group rotation={[0, degToRad(45), 0]}>
+    <>
       <primitive object={new Object3D()} ref={lookAtTarget} />
-      <primitive object={vrm.scene} />
-    </group>
+
+      <group rotation={[0, degToRad(45), 0]}>
+        <primitive object={vrm.scene} />
+      </group>
+    </>
   )
 }
