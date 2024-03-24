@@ -1,10 +1,11 @@
-import { Environment, Grid, OrbitControls } from '@react-three/drei'
 import { Avatar } from './Avatar'
+import { Skybox } from './Skybox'
 
 export const World = () => {
   return (
     <>
-      <Environment files="skybox/night_sky.hdr" background={true} />;
+      <ambientLight intensity={0.5} />
+      <Skybox />
       <Avatar />
     </>
   )

@@ -1,6 +1,6 @@
 import { useClips } from '@/hooks/useClips'
 import { useVRMloader } from '@/hooks/useVRMLoader'
-import { useAnimations } from '@react-three/drei'
+import { SpotLight, useAnimations } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 import { Object3D } from 'three'
@@ -37,9 +37,21 @@ export const Avatar = () => {
   })
 
   return (
-    <group rotation={[0, degToRad(45), 0]}>
+    <>
       <primitive object={new Object3D()} ref={lookAtTarget} />
-      <primitive object={vrm.scene} />
-    </group>
+
+      <group rotation={[0, degToRad(45), 0]}>
+        <primitive object={vrm.scene} />
+      </group>
+
+      <group position={[1, 2.25, 0]}>
+        <SpotLight
+          distance={5}
+          angle={0.15}
+          attenuation={2.75}
+          anglePower={5}
+        />
+      </group>
+    </>
   )
 }
