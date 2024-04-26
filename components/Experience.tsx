@@ -22,7 +22,7 @@ const Experience = () => {
           <PerspectiveCamera
             makeDefault
             position={[0.5, 1.25, 2]}
-            fov={mobile ? 60 : 50}
+            fov={mobile ? 55 : 50}
           />
           <World />
         </Suspense>
