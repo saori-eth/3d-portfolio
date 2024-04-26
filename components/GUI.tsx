@@ -13,7 +13,7 @@ export const GUI = () => {
           Hey I'm Saori!
         </Text>
         <Text color="white" fontSize={22} marginY={12}>
-          I primarily trade things onchain. In my downtime, I write TypeScript
+          Foremost, I'm an onchain trader. In my downtime, I write TypeScript
           and a bit of Solidity.
         </Text>
         <Text color="white" fontSize={22} marginY={12}>
