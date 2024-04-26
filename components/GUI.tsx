@@ -10,15 +10,15 @@ export const GUI = () => {
         maxWidth={375}
       >
         <Text color="white" fontSize={32}>
-          Hi!
+          Hey I'm Saori!
         </Text>
         <Text color="white" fontSize={22} marginY={12}>
-          I'm a crypto trader and programmer who builds startups in my free
-          time.
+          Foremost, I'm an onchain trader. In my downtime, I write TypeScript
+          and a bit of Solidity.
         </Text>
         <Text color="white" fontSize={22} marginY={12}>
-          I used to be a content writer. Suppose I'm a bit of a generalist,
-          interested in whatever gets the people going.
+          I'm very interested in the future of 3d web, web3 and asset
+          interoperability via NFTs.
         </Text>
       </Root>
     </group>

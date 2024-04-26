@@ -11,16 +11,23 @@ export const Avatar = () => {
   const clips = useClips(vrm)
   const { mixer, actions } = useAnimations(clips, vrm.scene)
   const lookAtTarget = useRef<Object3D>()
+  const defaultLookAtTarget = {
+    x: -0.717,
+    y: 0.502,
+  }
 
   useEffect(() => {
     const target = lookAtTarget.current
     if (!target || !vrm.lookAt) return console.error('No lookAtTarget found')
+    target.position.set(defaultLookAtTarget.x, defaultLookAtTarget.y, 0)
     vrm.lookAt.target = target
     const onMouseMove = (e: MouseEvent) => {
       target.position.x =
         10.0 * ((e.clientX - 0.5 * window.innerWidth) / window.innerHeight)
       target.position.y =
         -10.0 * ((e.clientY - 0.5 * window.innerHeight) / window.innerHeight)
+
+      console.log(target.position.x, target.position.y)
     }
     window.addEventListener('mousemove', onMouseMove)
     return () => window.removeEventListener('mousemove', onMouseMove)
