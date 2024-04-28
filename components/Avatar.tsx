@@ -26,8 +26,6 @@ export const Avatar = () => {
         10.0 * ((e.clientX - 0.5 * window.innerWidth) / window.innerHeight)
       target.position.y =
         -10.0 * ((e.clientY - 0.5 * window.innerHeight) / window.innerHeight)
-
-      console.log(target.position.x, target.position.y)
     }
     window.addEventListener('mousemove', onMouseMove)
     return () => window.removeEventListener('mousemove', onMouseMove)
