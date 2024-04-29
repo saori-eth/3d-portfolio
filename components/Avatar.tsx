@@ -33,6 +33,7 @@ export const Avatar = () => {
 
   useEffect(() => {
     if (!actions.idle) return console.error('No idle animation found')
+    actions.idle.setEffectiveTimeScale(0.5)
     actions.idle.play()
   }, [actions])
 
@@ -45,7 +46,7 @@ export const Avatar = () => {
     <>
       <primitive object={new Object3D()} ref={lookAtTarget} />
 
-      <group rotation={[0, degToRad(45), 0]}>
+      <group position={[0.1, -0.1, 0]} rotation={[0, degToRad(45), 0]}>
         <primitive object={vrm.scene} />
       </group>
 
