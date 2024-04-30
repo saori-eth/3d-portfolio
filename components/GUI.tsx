@@ -1,4 +1,4 @@
-import { Container, Root, Text } from '@react-three/uikit'
+import { Container, Root, Text, Svg } from '@react-three/uikit'
 import { Card, List, ListItem } from './uikit'
 import { useScroll } from '@react-three/drei'
 import { useLayoutEffect, useRef } from 'react'
@@ -41,7 +41,7 @@ const Intro = () => {
     <Root sizeX={0.75} sizeY={0.5}>
       <Card
         width={'100%'}
-        height={'100%'}
+        height={'95%'}
         padding={15}
         alignItems={'flex-start'}
         justifyContent={'space-evenly'}
@@ -58,11 +58,27 @@ const Intro = () => {
           interoperability via NFTs.
         </Text>
       </Card>
+      <Container flexDirection={'row'} justifyContent={'center'}>
+        <Text fontSize={10} paddingTop={5}>
+          Scroll
+        </Text>
+        <Svg
+          src="icon/down.svg"
+          width={20}
+          color={'white'}
+          paddingLeft={5}
+          paddingTop={5}
+        />
+      </Container>
     </Root>
   )
 }
 
-const SkillsList = {
+interface SkillsListType {
+  [category: string]: string[]
+}
+
+const SkillsList: SkillsListType = {
   Frontend: [
     'React',
     'Three.js',
@@ -114,12 +130,9 @@ const Skills = () => {
               key={`category-${category}`}
             >
               <Text fontWeight={'bold'}>{category}</Text>
-              {
-                //@ts-expect-error
-                SkillsList[category].map((skill) => (
-                  <Text key={`skill-${skill}`}>- {skill}</Text>
-                ))
-              }
+              {SkillsList[category].map((skill) => (
+                <Text key={`skill-${skill}`}>- {skill}</Text>
+              ))}
             </Container>
           ))}
         </Container>
@@ -131,7 +144,7 @@ const Skills = () => {
 const Projects = () => {
   return (
     <Root>
-      <Card width={'100%'} height={'100%'} padding={15}>
+      <Card width={'100%'} height={'95%'} padding={15}>
         <Text fontWeight={'bold'} fontSize={24} paddingBottom={20}>
           Projects
         </Text>
