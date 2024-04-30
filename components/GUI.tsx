@@ -8,6 +8,7 @@ import { useFrame } from '@react-three/fiber'
 export const GUI = () => {
   const tl = useRef<GSAPTimeline>()
   const gui = useRef<any>()
+  const text = useRef<any>()
   const scroll = useScroll()
   useFrame(() => {
     if (!tl.current) return
@@ -132,6 +133,9 @@ const Projects = () => {
   return (
     <Root>
       <Card width={'100%'} height={'100%'} padding={15}>
+        <Text fontWeight={'bold'} fontSize={24} paddingBottom={20}>
+          Projects
+        </Text>
         <List type="plain" width={400}>
           <ListItem
             subtitle={
