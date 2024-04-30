@@ -108,12 +108,16 @@ const Skills = () => {
           paddingX={15}
         >
           {Object.keys(SkillsList).map((category) => (
-            <Container flexDirection={'column'} paddingX={30}>
+            <Container
+              flexDirection={'column'}
+              paddingX={30}
+              key={`category-${category}`}
+            >
               <Text fontWeight={'bold'}>{category}</Text>
               {
                 //@ts-expect-error
                 SkillsList[category].map((skill) => (
-                  <Text>- {skill}</Text>
+                  <Text key={`skill-${skill}`}>- {skill}</Text>
                 ))
               }
             </Container>
