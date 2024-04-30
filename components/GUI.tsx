@@ -50,8 +50,8 @@ const Intro = () => {
           Hey, I'm Saori!
         </Text>
         <Text>
-          Foremost, I work for the internet. Coding satisfies my drive to work,
-          and trading crypto is basically my video game.
+          Foremost, I work for the internet. Half of my time is spent building
+          and the other half is investing in builders.
         </Text>
         <Text>
           I'm very interested in the future of 3d web, web3 and asset
