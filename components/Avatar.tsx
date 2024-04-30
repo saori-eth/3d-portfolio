@@ -28,6 +28,11 @@ export const Avatar = () => {
         -10.0 * ((e.clientY - 0.5 * window.innerHeight) / window.innerHeight)
     }
     window.addEventListener('mousemove', onMouseMove)
+
+    const neckBone = vrm.humanoid.getNormalizedBoneNode('neck')
+    if (!neckBone) return console.error('No neck bone found')
+    neckBone.rotation.y = degToRad(90)
+
     return () => window.removeEventListener('mousemove', onMouseMove)
   }, [])
 
@@ -46,7 +51,7 @@ export const Avatar = () => {
     <>
       <primitive object={new Object3D()} ref={lookAtTarget} />
 
-      <group position={[0.1, -0.1, 0]} rotation={[0, degToRad(45), 0]}>
+      <group position={[0.1, 0.5, 0]} rotation={[0, degToRad(45), 0]}>
         <primitive object={vrm.scene} />
       </group>
 
