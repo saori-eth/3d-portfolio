@@ -8,7 +8,6 @@ import { useFrame } from '@react-three/fiber'
 export const GUI = () => {
   const tl = useRef<GSAPTimeline>()
   const gui = useRef<any>()
-  const text = useRef<any>()
   const scroll = useScroll()
   useFrame(() => {
     if (!tl.current) return
@@ -23,7 +22,7 @@ export const GUI = () => {
     })
   }, [])
   return (
-    <group position={[0.77, 1.25, -0.25]} rotation={[0, -0.25, 0]} ref={gui}>
+    <group position={[0.7, 1.25, -0.25]} rotation={[0, -0.25, 0]} ref={gui}>
       <group position={[0, 0, 0]}>
         <Intro />
       </group>
