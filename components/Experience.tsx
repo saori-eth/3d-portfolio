@@ -1,6 +1,11 @@
 'use client'
 import { Canvas } from '@react-three/fiber'
-import { Loader, OrbitControls, PerspectiveCamera } from '@react-three/drei'
+import {
+  Loader,
+  OrbitControls,
+  PerspectiveCamera,
+  ScrollControls,
+} from '@react-three/drei'
 import { Suspense, useEffect, useState } from 'react'
 import { World } from './World'
 import { GUI } from './GUI'
@@ -18,7 +23,9 @@ const Experience = () => {
       <Canvas>
         {/* <OrbitControls /> */}
         <Suspense fallback={null}>
-          <GUI />
+          <ScrollControls pages={2} damping={0.1}>
+            <GUI />
+          </ScrollControls>
           <PerspectiveCamera
             makeDefault
             position={[0.5, 1.25, 2]}
