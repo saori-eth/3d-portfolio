@@ -1,11 +1,15 @@
-import { useTexture } from '@react-three/drei'
+import { Sphere } from '@react-three/drei'
+import { Gradient, LayerMaterial } from 'lamina'
+import * as THREE from 'three'
 
 export const Skybox = () => {
-  const texture = useTexture('skybox/skybox.png')
   return (
-    <mesh>
-      <sphereGeometry args={[500, 60, 40]} />
-      <meshBasicMaterial map={texture} side={2} />
-    </mesh>
+    <>
+      <Sphere scale={[500, 500, 500]}>
+        <LayerMaterial color={'#ffffff'} side={THREE.BackSide}>
+          <Gradient axes={'x'} colorA="#579f90" colorB="#383838" />
+        </LayerMaterial>
+      </Sphere>
+    </>
   )
 }
