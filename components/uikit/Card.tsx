@@ -9,7 +9,7 @@ export function Card({
   return (
     <Container
       backgroundColor={colors.card}
-      backgroundOpacity={0.8}
+      backgroundOpacity={0.95}
       borderColor={colors.card}
       borderOpacity={0.8}
       border={4}

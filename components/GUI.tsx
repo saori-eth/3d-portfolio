@@ -59,7 +59,7 @@ const Intro = () => {
         </Text>
       </Card>
       <Container flexDirection={'row'} justifyContent={'center'}>
-        <Text fontSize={10} paddingTop={5}>
+        <Text fontSize={12} paddingTop={5}>
           Scroll
         </Text>
         <Svg
