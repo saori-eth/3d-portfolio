@@ -50,7 +50,7 @@ const Intro = () => {
           Hey, I'm Saori!
         </Text>
         <Text>
-          Foremost, I work for the internet. Half of my time is spent building
+          I'm currently work for the internet. Half of my time is spent building
           and the other half is investing in builders.
         </Text>
         <Text>
@@ -92,6 +92,7 @@ const SkillsList: SkillsListType = {
     'WAGMI',
     'Tailwind CSS',
     'Web3.js (Solana)',
+    'pixiv/three-vrm',
   ],
   Backend: [
     'Node.js',
