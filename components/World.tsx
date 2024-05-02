@@ -9,8 +9,13 @@ const defaultCamPos = {
   y: 1.25,
 }
 
-export const World = () => {
+interface WorldProps {
+  mobile: boolean
+}
+
+export const World = (props: WorldProps) => {
   useFrame((state) => {
+    if (props.mobile) return
     gsap.to(state.camera.position, {
       x: defaultCamPos.x + state.pointer.x / 50,
       y: defaultCamPos.y + state.pointer.y / 50,
