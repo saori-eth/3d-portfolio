@@ -1,8 +1,22 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { Avatar } from './Avatar'
 import { Skybox } from './Skybox'
+import { useFrame } from '@react-three/fiber'
+import { gsap } from 'gsap/gsap-core'
+
+const defaultCamPos = {
+  x: 0.5,
+  y: 1.25,
+}
 
 export const World = () => {
+  useFrame((state) => {
+    gsap.to(state.camera.position, {
+      x: defaultCamPos.x + state.pointer.x / 50,
+      y: defaultCamPos.y + state.pointer.y / 50,
+      duration: 0.5,
+    })
+  })
   return (
     <>
       <ambientLight intensity={0.5} />
