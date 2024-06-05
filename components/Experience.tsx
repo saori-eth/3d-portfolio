@@ -1,8 +1,7 @@
 'use client'
 import { Canvas } from '@react-three/fiber'
 import {
-  Loader,
-  OrbitControls,
+  // OrbitControls,
   PerspectiveCamera,
   ScrollControls,
 } from '@react-three/drei'
@@ -10,6 +9,7 @@ import { Suspense, useEffect, useState } from 'react'
 import { World } from './World'
 import { GUI } from './GUI'
 import { useProgress } from '@react-three/drei'
+import { LoadingScreen } from './LoadingScreen'
 
 interface ExperienceProps {
   setLoaded: (loaded: boolean) => void
@@ -31,9 +31,8 @@ const Experience = (props: ExperienceProps) => {
   }, [])
   return (
     <>
-      <Loader />
+      <LoadingScreen />
       <Canvas>
-        {/* <OrbitControls /> */}
         <Suspense fallback={null}>
           <ScrollControls pages={2} damping={0.1}>
             <GUI />
