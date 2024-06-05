@@ -9,8 +9,20 @@ import {
 import { Suspense, useEffect, useState } from 'react'
 import { World } from './World'
 import { GUI } from './GUI'
+import { useProgress } from '@react-three/drei'
 
-const Experience = () => {
+interface ExperienceProps {
+  setLoaded: (loaded: boolean) => void
+}
+
+const Experience = (props: ExperienceProps) => {
+  const { setLoaded } = props
+  const { progress } = useProgress()
+  useEffect(() => {
+    if (progress === 100) {
+      setLoaded(true)
+    }
+  }, [progress])
   const [mobile, setMobile] = useState(window.innerWidth < 768)
   useEffect(() => {
     window.addEventListener('resize', () => {

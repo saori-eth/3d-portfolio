@@ -161,7 +161,7 @@ const Projects = () => {
             <Text>Yearn Finance</Text>
           </ListItem>
           <ListItem
-            subtitle={<Text>Cofounder 2022-2023</Text>}
+            subtitle={<Text>Developer 2022-2023</Text>}
             onPointerDown={() => window.open('https://hyperfy.io')}
           >
             <Text>Hyperfy</Text>
