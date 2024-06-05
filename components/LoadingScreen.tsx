@@ -7,8 +7,8 @@ export const LoadingScreen = () => {
 
   useEffect(() => {
     if (item) {
-      const fileNames = item.split('/')
-      setItems((prev) => [...prev, fileNames[fileNames.length - 1]])
+      const fileName = item.split('/')
+      setItems((prev) => [...prev, fileName[fileName.length - 1]])
     }
   }, [item])
 

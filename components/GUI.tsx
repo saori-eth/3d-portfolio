@@ -4,10 +4,11 @@ import { useScroll } from '@react-three/drei'
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { useFrame } from '@react-three/fiber'
+import type { Group } from 'three'
 
 export const GUI = () => {
   const tl = useRef<GSAPTimeline>()
-  const gui = useRef<any>()
+  const gui = useRef<Group>(null)
   const scroll = useScroll()
   useFrame(() => {
     if (!tl.current) return
