@@ -16,13 +16,6 @@ interface ExperienceProps {
 }
 
 const Experience = (props: ExperienceProps) => {
-  const { setLoaded } = props
-  const { progress } = useProgress()
-  useEffect(() => {
-    if (progress === 100) {
-      setLoaded(true)
-    }
-  }, [progress])
   const [mobile, setMobile] = useState(window.innerWidth < 768)
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -30,22 +23,19 @@ const Experience = (props: ExperienceProps) => {
     })
   }, [])
   return (
-    <>
-      <LoadingScreen />
-      <Canvas>
-        <Suspense fallback={null}>
-          <ScrollControls pages={2} damping={0.1}>
-            <GUI />
-          </ScrollControls>
-          <PerspectiveCamera
-            makeDefault
-            position={[0.5, 1.25, 2]}
-            fov={mobile ? 60 : 50}
-          />
-          <World mobile={mobile} />
-        </Suspense>
-      </Canvas>
-    </>
+    <Canvas>
+      <Suspense fallback={null}>
+        <ScrollControls pages={2} damping={0.1}>
+          <GUI />
+        </ScrollControls>
+        <PerspectiveCamera
+          makeDefault
+          position={[0.5, 1.25, 2]}
+          fov={mobile ? 60 : 50}
+        />
+        <World mobile={mobile} setLoaded={props.setLoaded} />
+      </Suspense>
+    </Canvas>
   )
 }
 

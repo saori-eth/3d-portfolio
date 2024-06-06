@@ -11,6 +11,7 @@ const defaultCamPos = {
 
 interface WorldProps {
   mobile: boolean
+  setLoaded: (loaded: boolean) => void
 }
 
 export const World = (props: WorldProps) => {
@@ -26,7 +27,7 @@ export const World = (props: WorldProps) => {
     <>
       <ambientLight intensity={0.5} />
       <Skybox />
-      <Avatar />
+      <Avatar setLoaded={props.setLoaded} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.5, -0]}>
         <planeGeometry args={[100, 100]} />
         <MeshReflectorMaterial

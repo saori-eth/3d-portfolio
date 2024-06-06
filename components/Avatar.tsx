@@ -5,7 +5,12 @@ import { useFrame } from '@react-three/fiber'
 import { useEffect } from 'react'
 import { degToRad } from 'three/src/math/MathUtils.js'
 
-export const Avatar = () => {
+interface AvatarProps {
+  setLoaded: (loaded: boolean) => void
+}
+
+export const Avatar = (props: AvatarProps) => {
+  const { setLoaded } = props
   const vrm = useVRMloader('/avatar/avatar.vrm')
   const clips = useClips(vrm)
   const { mixer, actions } = useAnimations(clips, vrm.scene)
@@ -14,6 +19,7 @@ export const Avatar = () => {
     if (!actions.idle) return console.error('No idle animation found')
     actions.idle.setEffectiveTimeScale(0.5)
     actions.idle.play()
+    setLoaded(true)
   }, [actions])
 
   useFrame((_, delta) => {
