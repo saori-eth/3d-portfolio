@@ -8,8 +8,6 @@ import {
 import { Suspense, useEffect, useState } from 'react'
 import { World } from './World'
 import { GUI } from './GUI'
-import { useProgress } from '@react-three/drei'
-import { LoadingScreen } from './LoadingScreen'
 
 interface ExperienceProps {
   setLoaded: (loaded: boolean) => void
