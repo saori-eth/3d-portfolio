@@ -27,7 +27,7 @@ export const GUI = () => {
       <group position={[0, 0, 0]}>
         <Intro />
       </group>
-      <group position={[0, -2, 0]}>
+      <group position={[0, -1.875, 0]}>
         <Skills />
       </group>
       <group position={[0, -3.75, 0]}>
