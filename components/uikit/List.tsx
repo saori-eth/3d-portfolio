@@ -1,7 +1,7 @@
 import { Container, DefaultProperties } from '@react-three/uikit'
-import React, {
-  ComponentPropsWithoutRef,
-  ReactNode,
+import {
+  type ComponentPropsWithoutRef,
+  type ReactNode,
   createContext,
   useContext,
 } from 'react'

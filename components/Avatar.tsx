@@ -20,7 +20,7 @@ export const Avatar = (props: AvatarProps) => {
     actions.idle.setEffectiveTimeScale(0.5)
     actions.idle.play()
     setLoaded(true)
-  }, [actions])
+  }, [actions, setLoaded])
 
   useFrame((_, delta) => {
     vrm.update(delta)

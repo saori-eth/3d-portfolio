@@ -1,8 +1,8 @@
-import { VRM, VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm'
+import { type VRM, VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm'
 import { useLoader } from '@react-three/fiber'
 import {
   GLTFLoader,
-  GLTFLoaderPlugin,
+  type GLTFLoaderPlugin,
   type GLTFParser,
 } from 'three/examples/jsm/loaders/GLTFLoader.js'
 

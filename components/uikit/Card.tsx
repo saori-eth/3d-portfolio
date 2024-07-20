@@ -1,5 +1,5 @@
 import { Container, DefaultProperties } from '@react-three/uikit'
-import React, { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { GlassMaterial, colors } from './Theme'
 
 export function Card({

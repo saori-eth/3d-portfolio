@@ -1,5 +1,5 @@
 import { DefaultProperties } from '@react-three/uikit'
-import React, { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import { Color, MeshPhongMaterial } from 'three'
 
 export class GlassMaterial extends MeshPhongMaterial {
