@@ -13,7 +13,7 @@ export const Header = () => {
       />
       <div className="text-xl text-white">Saori Makishima</div>
       <a
-        href="https://twitter.com/saori_xbt"
+        href="https://twitter.com/saori_dev"
         target="_blank"
         rel="noopener noreferrer"
         className="ml-auto p-2 pr-4"
