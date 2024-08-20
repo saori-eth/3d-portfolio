@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
 import dynamic from 'next/dynamic'
-import { Header } from '../components/Header'
 const Experience = dynamic(() => import('../components/Experience'), {
   ssr: false,
 })
@@ -29,7 +28,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} w-screen h-screen overflow-hidden`}>
-        <Header />
         <Experience />
         {children}
       </body>
